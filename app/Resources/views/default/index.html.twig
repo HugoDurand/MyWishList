@@ -7,9 +7,16 @@
             <p>Ajouter Une Liste</p>
         </div>
         <div class="contentcard">
-            <p>+</p>
+            <p onclick='div_show()'>+</p>
         </div>
     </div>
+
+
+    <form method="post" id="contactForm">
+        Nom<input type="text" name="nom">
+        <input class="formBtn" type="submit" />
+    </form>
+
 
     {% for list in liste %}
 
@@ -27,5 +34,14 @@
 
 
 
+<script>
 
+    function div_show() {
+        document.getElementById('contactForm').style.display = "block";
+    };
+    function div_hide(){
+        document.getElementById('contactForm').style.display = "none";
+    };
+
+</script>
 {% endblock %}
