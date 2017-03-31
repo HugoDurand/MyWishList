@@ -16,7 +16,7 @@ class DefaultController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
-        $liste = $em->getRepository('AppBundle:Liste')->findBy(array(), array('date'=>'desc'));
+        $liste = $em->getRepository('AppBundle:Liste')->findAll();
 
         $nom = $request->request->get('nom');
 //        $photo = $request->request->get('photo');
