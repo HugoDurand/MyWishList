@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Wish{% endblock %}</title>
+
+        <script src="{{asset ('jquery-3.2.0.min.js') }}"></script>
+        <script src="{{asset ('js/bootstrap.min.js') }}"></script>
+
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{ asset('css/style.css')}}" rel="stylesheet">
+
+        {% block stylesheets %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+
+    </head>
+    <body>
+
+    <header>
+        <div class="top_bar">
+            {#<a class="navbar-brand" href="#"><img src="http://placehold.it/150x50&text=Logo"></a>#}
+            <a class="navbar-brand" href="#"><h2 class="logo">MyWishList</h2></a>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Providers</a></li>
+                    <li><a href="#">Partners</a></li>
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+        {% block body %}{% endblock %}
+    <script>
+
+$(document).ready(function(){
+    $(".dropdown").hover(
+            function() {
+                $('.dropdown-menu', this).not('.in .dropdown-menu').stop( true, true ).slideDown("fast");
+                $(this).toggleClass('open');
+            },
+            function() {
+                $('.dropdown-menu', this).not('.in .dropdown-menu').stop( true, true ).slideUp("fast");
+                $(this).toggleClass('open');
+            }
+    );
+});
+
+    </script>
+    </body>
+</html>

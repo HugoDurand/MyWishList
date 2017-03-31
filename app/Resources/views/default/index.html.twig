@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="card card-1">
+        <div class="headercard">
+            <p>Ajouter Une Liste</p>
+        </div>
+        <div class="contentcard">
+            <p>+</p>
+        </div>
+    </div>
+
+    {% for list in liste %}
+
+        <div class="card card-1">
+            <div class="headercard">
+                <p> {{ list.nom }}</p>
+                <small><p class="time">{{ list.date|date("Y-m-d H:i:s")}}</p></small>
+            </div>
+            <div class="contentcard">
+                <p>image</p>
+            </div>
+        </div>
+
+    {% endfor %}
+
+
+
+
+{% endblock %}
