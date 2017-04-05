@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Listes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Date</th>
+                <th>Photo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for liste in listes %}
+            <tr>
+                <td><a href="{{ path('liste_show', { 'id': liste.id }) }}">{{ liste.id }}</a></td>
+                <td>{{ liste.nom }}</td>
+                <td>{% if liste.date %}{{ liste.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ liste.photo }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('liste_show', { 'id': liste.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('liste_edit', { 'id': liste.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('liste_new') }}">Create a new liste</a>
+        </li>
+    </ul>
+{% endblock %}

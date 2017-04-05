@@ -23,13 +23,15 @@ class DefaultController extends Controller
 
         if( !empty($request->request->all())){
 
-        $liste = new Liste();
-        $liste->setNom($nom);
+            $liste = new Liste();
+            $liste->setNom($nom);
 //        $liste->setPhoto($photo);
-        $liste->setDate(new \DateTime());
+            $liste->setDate(new \DateTime());
 
-        $em->persist($liste);
-        $em->flush();
+            $em->persist($liste);
+            $em->flush();
+
+            return $this->redirectToRoute('homepage');
 
         };
 
