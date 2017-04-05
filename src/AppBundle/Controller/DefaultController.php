@@ -43,4 +43,26 @@ class DefaultController extends Controller
         ));
 
     }
+
+
+
+    /**
+     * Deletes a liste entity.
+     *
+     * @Route("/{id}", name="delete")
+     */
+    public function deleteAction(Request $request, Liste $liste)
+    {
+
+
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($liste);
+            $em->flush();
+
+
+        return $this->redirectToRoute('homepage');
+    }
+
+
+
 }

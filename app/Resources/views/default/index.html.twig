@@ -26,6 +26,7 @@
             <div class="headercard">
                 <p> {{ list.nom }}</p>
                 <small><p class="time">{{ list.date|date("Y-m-d H:i:s")}}</p></small>
+                <a href="{{ path('delete',{'id': list.id}) }}">DELETE</a>
             </div>
             <div class="contentcard">
                 <p>image</p>
