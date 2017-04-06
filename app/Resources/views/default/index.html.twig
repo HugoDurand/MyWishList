@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
+
+<a class="btn btn-danger edit" onclick='wig()'>edit</a>
 
     <div class="content col-md-10 col-md-push-1">
 
@@ -15,6 +16,7 @@
 
 
     <form method="post" id="contactForm">
+        <a onclick='div_hide()'>Fermer</a>
         Nom<input type="text" name="nom">
         <input class="formBtn" type="submit" />
     </form>
@@ -24,9 +26,9 @@
 
         <div class="card card-1">
             <div class="headercard">
+                <a id="delete" class="fa fa-minus-circle"  href="{{ path('delete',{'id': list.id}) }}"></a>
                 <p> {{ list.nom }}</p>
                 <small><p class="time">{{ list.date|date("Y-m-d H:i:s")}}</p></small>
-                <a href="{{ path('delete',{'id': list.id}) }}">DELETE</a>
             </div>
             <div class="contentcard">
                 <p>image</p>
@@ -41,12 +43,28 @@
 
 <script>
 
+    function wig() {
+        $('.card').wiggle('start');
+        document.getElementById('delete').style.display = "block";
+    };
+
+    function wig_stop() {
+        $('.card').wiggle('stop');
+        document.getElementById('delete').style.display = "none";
+    };
+
     function div_show() {
         document.getElementById('contactForm').style.display = "block";
     };
     function div_hide(){
         document.getElementById('contactForm').style.display = "none";
     };
+
+
+
+
+</script>
+
 
 </script>
 {% endblock %}
