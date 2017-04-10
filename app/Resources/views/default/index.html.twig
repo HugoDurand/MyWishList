@@ -3,37 +3,41 @@
 
 <a class="btn btn-danger edit" onclick='wig()'>edit</a>
 
-    <div class="content col-md-10 col-md-push-1">
+    {#<div class="card card-1">#}
+        {#<div class="headercard">#}
+            {#<p>Ajouter Une Liste</p>#}
+        {#</div>#}
+        {#<div class="contentcard">#}
+            {#<p onclick='div_show()'>+</p>#}
+        {#</div>#}
+    {#</div>#}
 
-    <div class="card card-1">
-        <div class="headercard">
-            <p>Ajouter Une Liste</p>
-        </div>
-        <div class="contentcard">
-            <p onclick='div_show()'>+</p>
-        </div>
-    </div>
+<div class="content col-md-10 col-md-push-1">
+            <img onclick='div_show()' class="add" src="{{ asset('img/add.png') }}">
 
 
     <form method="post" id="contactForm">
         <a onclick='div_hide()'>Fermer</a>
         Nom<input type="text" name="nom">
+        Photo<input type="text" name="photo">
         <input class="formBtn" type="submit" />
     </form>
 
 
     {% for list in liste %}
 
-        <div class="card card-1">
+        <a href="{{ path('article',{'liste': list.id}) }}"><div class="card card-1">
             <div class="headercard">
                 <a id="delete" class="fa fa-minus-circle"  href="{{ path('delete',{'id': list.id}) }}"></a>
                 <p> {{ list.nom }}</p>
                 <small><p class="time">{{ list.date|date("Y-m-d H:i:s")}}</p></small>
             </div>
             <div class="contentcard">
-                <p>image</p>
+                <img src="{{ list.photo }}"> </img>
             </div>
-        </div>
+        </div></a>
+
+        <a href="{{ path('article',{'liste': list.id}) }}">hello</a>
 
     {% endfor %}
 

@@ -1,0 +1,57 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+
+    <img onclick='div_show()' class="add" src="{{ asset('img/add.png') }}">
+
+    {% for art in article %}
+
+        <a class="selectpanel" href="{{ art.url }}"><div class="col-md-8 col-md-push-2">
+            <div class="panel panel-default  panel--styled">
+                <div class="panel-body">
+                    <div class="col-md-12 panelTop">
+                        <div class="col-md-4">
+                            <img class="img-responsive" src="{{ art.photo }}" alt=""/>
+                        </div>
+                        <div class="col-md-8">
+                            <h2>{{ art.nom }}</h2>
+                            <p>{{ art.note }}</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 panelBottom">
+                        <div class="col-md-4 text-left">
+                            <h5>Prix <span class="itemPrice">€{{ art.prix }}</span></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div></a>
+
+    {% endfor %}
+
+
+
+    <form method="post" id="contactForm">
+        <a onclick='div_hide()'>Fermer</a>
+        Nom<input type="text" name="nom">
+        Photo<input type="text" name="photo">
+        Url<input type="text" name="url">
+        Prix<input type="number" name="prix">
+        Note<textarea rows="4" cols="30" name="note"></textarea>
+        <input class="formBtn" type="submit" />
+    </form>
+
+
+
+<script>
+    function div_show() {
+        document.getElementById('contactForm').style.display = "block";
+    };
+    function div_hide(){
+        document.getElementById('contactForm').style.display = "none";
+    };
+</script>
+
+{% endblock %}

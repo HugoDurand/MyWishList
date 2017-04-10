@@ -57,6 +57,13 @@ class Article
     private $note;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id_liste", type="integer")
@@ -217,5 +224,23 @@ class Article
     {
         return $this->idListe;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param \DateTime $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
+
 }
 

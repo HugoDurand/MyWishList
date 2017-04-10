@@ -19,13 +19,13 @@ class DefaultController extends Controller
         $liste = $em->getRepository('AppBundle:Liste')->findAll();
 
         $nom = $request->request->get('nom');
-//        $photo = $request->request->get('photo');
+        $photo = $request->request->get('photo');
 
         if( !empty($request->request->all())){
 
             $liste = new Liste();
             $liste->setNom($nom);
-//        $liste->setPhoto($photo);
+            $liste->setPhoto($photo);
             $liste->setDate(new \DateTime());
 
             $em->persist($liste);
