@@ -26,18 +26,16 @@
 
     {% for list in liste %}
 
-        <a href="{{ path('article',{'liste': list.id}) }}"><div class="card card-1">
+        <div class="card card-1">
             <div class="headercard">
                 <a id="delete" class="fa fa-minus-circle"  href="{{ path('delete',{'id': list.id}) }}"></a>
-                <p> {{ list.nom }}</p>
+                <a href="{{ path('article',{'liste': list.id}) }}"><p> {{ list.nom }}</p></a>
                 <small><p class="time">{{ list.date|date("Y-m-d H:i:s")}}</p></small>
             </div>
             <div class="contentcard">
                 <img src="{{ list.photo }}"> </img>
             </div>
-        </div></a>
-
-        <a href="{{ path('article',{'liste': list.id}) }}">hello</a>
+        </div>
 
     {% endfor %}
 
