@@ -49,7 +49,7 @@ class DefaultController extends Controller
     /**
      * Deletes a liste entity.
      *
-     * @Route("/{id}", name="delete")
+     * @Route("/delete/{liste}", name="delete")
      */
     public function deleteAction(Request $request, Liste $liste)
     {
