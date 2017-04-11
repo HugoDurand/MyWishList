@@ -17,8 +17,13 @@ class ArticleController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
-        $article = $em->getRepository('AppBundle:Article')->findByIdListe($liste);
+        $article = $em->getRepository('AppBundle:Article')->findByIdListe($liste, array('date' => 'asc'));
 
+        $sum = 0;
+        foreach ($article as $prix){
+            $price = $prix->getPrix();
+            $sum+= $price;
+        };
 
         $nom = $request->request->get('nom');
         $photo = $request->request->get('photo');
@@ -46,6 +51,7 @@ class ArticleController extends Controller
 
         return $this->render('AppBundle:Article:article.html.twig', array(
             'article' => $article,
+            'sum' => $sum,
         ));
     }
 

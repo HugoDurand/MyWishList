@@ -27,6 +27,7 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/article, role: ROLE_USER }
 
 fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'

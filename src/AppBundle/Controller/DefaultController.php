@@ -15,8 +15,15 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
 
+        $userid = 0;
+        if( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
+        {
+            $user = $this->container->get('security.token_storage')->getToken()->getUser();
+            $userid = $user->getId();;
+        };
+
         $em = $this->getDoctrine()->getManager();
-        $liste = $em->getRepository('AppBundle:Liste')->findAll();
+        $liste = $em->getRepository('AppBundle:Liste')->findByIdUser($userid);
 
         $nom = $request->request->get('nom');
         $photo = $request->request->get('photo');
@@ -27,6 +34,7 @@ class DefaultController extends Controller
             $liste->setNom($nom);
             $liste->setPhoto($photo);
             $liste->setDate(new \DateTime());
+            $liste->setIdUser($userid);
 
             $em->persist($liste);
             $em->flush();

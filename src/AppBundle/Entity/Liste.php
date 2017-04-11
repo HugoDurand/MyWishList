@@ -42,6 +42,13 @@ class Liste
      */
     private $photo;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id_user", type="integer")
+     */
+    private $idUser;
+
 
 
     /**
@@ -125,5 +132,23 @@ class Liste
     {
         return $this->photo;
     }
+
+    /**
+     * @return int
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @param int $idUser
+     */
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
+    }
+
+
 }
 
