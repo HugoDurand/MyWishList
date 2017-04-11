@@ -3,7 +3,8 @@
 
 
 
-<a class="btn btn-danger edit" onclick='wig()'>edit</a>
+<a class="btn btn-danger edit" id="editplay" onclick='wig()'>Edit</a>
+<a class="btn btn-danger edit" id="editstop" onclick='wig_stop()'>Stop</a>
 
     {#<div class="card card-1">#}
         {#<div class="headercard">#}
@@ -23,7 +24,7 @@
 
 
     <form method="post" id="contactForm">
-        <a onclick='div_hide()'>Fermer</a>
+        <a onclick='div_hide()' class="fa fa-times close"></a><br/>
         Nom<input type="text" name="nom">
         Photo<input type="text" name="photo">
         <input class="formBtn" type="submit" />
@@ -34,12 +35,13 @@
 
         <div class="card card-1">
             <div class="headercard">
+                <a id="edit" class="fa fa-pencil-square-o" href="{{ path('edit',{'liste': list.id}) }}" ></a>
                 <a id="delete" class="fa fa-minus-circle"  href="{{ path('delete',{'liste': list.id}) }}"></a>
                 <a href="{{ path('article',{'liste': list.id}) }}"><p> {{ list.nom }}</p></a>
                 <small><p class="time">{{ list.date|date("Y-m-d H:i:s")}}</p></small>
             </div>
             <div class="contentcard">
-                <img src="{{ list.photo }}"> </img>
+                <img src="{{ list.photo }}"/>
             </div>
         </div>
 
@@ -54,11 +56,17 @@
     function wig() {
         $('.card').wiggle('start');
         document.getElementById('delete').style.display = "block";
+        document.getElementById('edit').style.display = "block";
+        document.getElementById('editplay').style.display = "none";
+        document.getElementById('editstop').style.display = "block";
     };
 
     function wig_stop() {
         $('.card').wiggle('stop');
         document.getElementById('delete').style.display = "none";
+        document.getElementById('edit').style.display = "none";
+        document.getElementById('editplay').style.display = "block";
+        document.getElementById('editstop').style.display = "none";
     };
 
     function div_show() {

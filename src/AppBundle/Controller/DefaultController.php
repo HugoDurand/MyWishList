@@ -23,7 +23,7 @@ class DefaultController extends Controller
         };
 
         $em = $this->getDoctrine()->getManager();
-        $liste = $em->getRepository('AppBundle:Liste')->findByIdUser($userid);
+        $liste = $em->getRepository('AppBundle:Liste')->findByIdUser($userid, array('date' => 'desc'));
 
         $nom = $request->request->get('nom');
         $photo = $request->request->get('photo');
@@ -69,6 +69,48 @@ class DefaultController extends Controller
 
 
         return $this->redirectToRoute('homepage');
+    }
+
+
+    /**
+     * Deletes a liste entity.
+     *
+     * @Route("/edit/{liste}", name="edit")
+     */
+    public function editAction(Request $request, Liste $liste)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $userid = 0;
+        if( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
+        {
+            $user = $this->container->get('security.token_storage')->getToken()->getUser();
+            $userid = $user->getId();;
+        };
+
+        $nom = $request->request->get('nom');
+        $photo = $request->request->get('photo');
+
+
+
+        if( !empty($request->request->all())){
+
+            $liste->setNom($nom);
+            $liste->setPhoto($photo);
+            $liste->setDate(new \DateTime());
+            $liste->setIdUser($userid);
+
+            $em->persist($liste);
+            $em->flush();
+
+            return $this->redirectToRoute('homepage');
+
+        };
+
+        return $this->render('default/edit.html.twig', array(
+
+        ));
     }
 
 

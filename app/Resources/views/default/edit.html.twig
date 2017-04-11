@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <form method="post" id="editform">
+        <a onclick='div_hide()'>Fermer</a>
+        Nom<input type="text" name="nom"><br/>
+        Photo<input type="text" name="photo"><br/>
+        <input class="formBtn" type="submit" />
+    </form>
+
+{% endblock %}
