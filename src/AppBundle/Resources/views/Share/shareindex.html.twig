@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+{% for list in listeshare %}
+
+    <div class="card card-1">
+        <div class="headercard">
+            <a href="{{ path('article',{'liste': list.id}) }}"><p> {{ list.nom }}</p></a>
+            <small><p class="time">{{ list.date|date("Y-m-d H:i:s")}}</p></small>
+        </div>
+        <div class="contentcard">
+            <img src="{{ list.photo }}"/>
+        </div>
+    </div>
+
+{% endfor %}
+
+{% endblock %}

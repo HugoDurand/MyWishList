@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     <div class="bodylogin">
-    <h1>Bienvenue sur MyWishList</h1>
 {% block content %}
 
     <div class="loginform">
@@ -11,9 +10,9 @@
             {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
         </a>
     {% else %}
-        <a href="{{ path('fos_user_security_login') }}">Login</a>&nbsp;
-        <a href="{{ path('fos_user_registration_register') }}">Inscription</a>&nbsp;
-        <a href="{{ path('fos_user_resetting_request') }}">Forgot password ?</a><br/><br/>
+        <a class="logina" href="{{ path('fos_user_security_login') }}">Login</a>&nbsp;
+        <a class="logina" href="{{ path('fos_user_registration_register') }}">Inscription</a>&nbsp;
+        <a class="logina" href="{{ path('fos_user_resetting_request') }}">Forgot password ?</a><br/><br/>
     {% endif %}
 
 

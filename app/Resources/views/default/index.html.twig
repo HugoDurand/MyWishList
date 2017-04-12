@@ -41,6 +41,7 @@
             </div>
             <div class="contentcard">
                 <img src="{{ list.photo }}"/>
+                <a href="{{ path('share',{'liste': list.id}) }}" class="fa fa-share-alt-square share"></a>
             </div>
         </div>
 
@@ -75,10 +76,6 @@
         document.getElementById('contactForm').style.display = "none";
     };
 
-
-
-
-</script>
 
 
 </script>
