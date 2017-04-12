@@ -30,7 +30,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li><a>{{app.user.username}}</a></li>
-                        <li><a href="#">Partagés</a></li>
+                        <li><a href="{{ path('share') }}">Partagés</a></li>
                         <li><a href="{{ path('fos_user_security_logout') }}">
                                 {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                             </a></li>
@@ -41,6 +41,10 @@
             </div>
         </div>
     </header>
+
+    <footer>
+
+    </footer>
 
 
 

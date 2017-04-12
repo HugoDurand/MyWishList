@@ -22,6 +22,7 @@ class DefaultController extends Controller
             $userid = $user->getId();;
         };
 
+
         $em = $this->getDoctrine()->getManager();
         $liste = $em->getRepository('AppBundle:Liste')->findByIdUser($userid, array('date' => 'desc'));
 
