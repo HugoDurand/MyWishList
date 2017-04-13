@@ -74,7 +74,7 @@ class DefaultController extends Controller
 
 
     /**
-     * Deletes a liste entity.
+     * Edit a liste entity.
      *
      * @Route("/edit/{liste}", name="edit")
      */

@@ -150,6 +150,29 @@ text-decoration: none;
 }
 
 
+.deletearticle{
+    font-size: 1.5vw;
+    color: rgb(215, 84, 82);
+    margin: 2rem;
+    float: right;
+}
+.deletearticle:hover{
+    text-decoration: none;
+    color :rgb(153, 59, 58);
+}
+
+.editarticle{
+    font-size: 1.5vw;
+    color: rgb(215, 128, 40);
+    margin: 2rem;
+    float: right;
+}
+.editarticle:hover{
+    text-decoration: none;
+    color: rgb(191, 114, 36);
+}
+
+
 
 
 .card {

@@ -25,11 +25,12 @@
                             <p>{{ art.note }}</p>
                         </div>
                     </div>
-
                     <div class="col-md-12 panelBottom">
                         <div class="col-md-4 text-left">
                             <h5>Prix <span class="itemPrice">€{{ art.prix }}</span></h5>
                         </div>
+                        <a class="fa fa-trash-o deletearticle" href="{{ path('deletearticle',{'article': art.id}) }}"></a>
+                        <a class="fa fa-trash-o fa fa-pencil editarticle" href="{{ path('editarticle',{'article': art.id}) }}"></a>
                     </div>
                 </div>
             </div>

@@ -28,6 +28,8 @@ class ShareController extends Controller
 
         $listerecepteur = $em->getRepository('AppBundle:Share')->findByIdRecepteur($userid);
 
+        $listeshare = 0;
+
         foreach ($listerecepteur as $lissha){
             $shared = $lissha->getIdListe();
             $listeshare = $em->getRepository('AppBundle:Liste')->findById($shared);

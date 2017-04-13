@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <form method="post" id="editform">
+        Nom <input type="text" name="nom"><br/>
+        Photo <input type="text" name="photo"><br/>
+        Url <input type="text" name="url"><br/>
+        Prix <input type="number" name="prix"><br/>
+        Note <textarea rows="4" cols="30" name="note"></textarea><br/>
+        <input class="formBtn" type="submit" />
+    </form>
+
+{% endblock %}
