@@ -2,18 +2,25 @@
 
 {% block body %}
 
-{% for list in listeshare %}
+{#{% for list in listeshare %}#}
+    {#{{ list.id }}#}
+    {#<div class="col-md-8 col-md-push-2 adddivrem">#}
+    {#</div>#}
+{#<div class="content col-md-10 col-md-push-1">#}
+    {#<div class="card card-1">#}
+        {#<div class="headercard">#}
+            {#<a id="edit" class="fa fa-pencil-square-o" href="{{ path('edit',{'liste': list.id}) }}" ></a>#}
+            {#<a id="delete" class="fa fa-minus-circle"  href="{{ path('delete',{'liste': list.id}) }}"></a>#}
+            {#<a href="{{ path('article',{'liste': list.id}) }}"><p> {{ list.nom }}</p></a>#}
+            {#<small><p class="time">{{ list.date|date("Y-m-d H:i:s")}}</p></small>#}
+        {#</div>#}
+        {#<div class="contentcard">#}
+            {#<img src="{{ list.photo }}"/>#}
+            {#<a href="{{ path('share',{'liste': list.id}) }}" class="fa fa-share-alt-square share"></a>#}
+        {#</div>#}
+    {#</div>#}
 
-    <div class="card card-1">
-        <div class="headercard">
-            <a href="{{ path('article',{'liste': list.id}) }}"><p> {{ list.nom }}</p></a>
-            <small><p class="time">{{ list.date|date("Y-m-d H:i:s")}}</p></small>
-        </div>
-        <div class="contentcard">
-            <img src="{{ list.photo }}"/>
-        </div>
-    </div>
-
-{% endfor %}
+{#</div>#}
+{#{% endfor %}#}
 
 {% endblock %}

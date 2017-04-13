@@ -45,7 +45,7 @@ class Article
     /**
      * @var float
      *
-     * @ORM\Column(name="prix", type="float", nullable=true)
+     * @ORM\Column(name="prix", type="decimal", nullable=true)
      */
     private $prix;
 

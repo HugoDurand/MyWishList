@@ -13,7 +13,7 @@
     {% for art in article %}
 
         <div class="col-md-5 col-md-push-1">
-            <a class="selectpanel" href="{{ art.url }}">
+            <a target="_blank" class="selectpanel" href="{{ art.url }}">
             <div class="panel panel-default  panel--styled">
                 <div class="panel-body">
                     <div class="col-md-12 panelTop">
@@ -46,7 +46,7 @@
         Nom <input type="text" name="nom"><br/>
         Photo <input type="text" name="photo"><br/>
         Url <input type="text" name="url"><br/>
-        Prix <input type="number" name="prix"><br/>
+        *Prix <input type="number" step="0.01" name="prix"><br/>
         Note <textarea rows="4" cols="30" name="note"></textarea><br/>
         <input class="formBtn" type="submit" />
     </form>

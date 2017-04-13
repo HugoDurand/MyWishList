@@ -101,10 +101,9 @@ text-decoration: none;
     text-align: center;
 }
 
-.editform {
-    position: absolute;
+#editform {
     margin-left: 40%;
-    margin-top: 15rem;
+    margin-top: 15vh;
 }
 
 .edit{
