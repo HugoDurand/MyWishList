@@ -28,15 +28,14 @@ class ShareController extends Controller
 
         $listerecepteur = $em->getRepository('AppBundle:Share')->findByIdRecepteur($userid);
 
-        $listeshare = 0;
+        $listeshare = array();
 
         foreach ($listerecepteur as $lissha){
             $shared = $lissha->getIdListe();
-            $listeshare = $em->getRepository('AppBundle:Liste')->findById($shared);
+            $listeshare[] = $em->getRepository('AppBundle:Liste')->findById($shared);
 
         };
 
-        var_dump($listeshare);
 
         return $this->render('AppBundle:Share:shareindex.html.twig', array(
             'listeshare' => $listeshare,
