@@ -31,6 +31,7 @@
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li><a href="{{ path('homepage') }}" >{{app.user.username}}</a></li>
                         <li><a href="{{ path('shared') }}">Partagés</a></li>
+                        <li><a href="{{ path('wisher') }}">Wisheur</a></li>
                         <li><a href="{{ path('fos_user_security_logout') }}">
                                 {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                             </a></li>
